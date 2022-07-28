@@ -5,8 +5,11 @@ class Player {
     this.positionX = 0;
     this.positionY = 0;
     this.rank = 0;
+<<<<<<< HEAD
     this.fuel = 185;
     this.life = 185;
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
     this.score = 0;
   }
 
@@ -24,7 +27,11 @@ class Player {
       positionX: this.positionX,
       positionY: this.positionY,
       rank: this.rank,
+<<<<<<< HEAD
       score: this.score
+=======
+      score: this.score,
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
     });
   }
 
@@ -56,8 +63,12 @@ class Player {
       positionX: this.positionX,
       positionY: this.positionY,
       rank: this.rank,
+<<<<<<< HEAD
       score: this.score,
       life: this.life
+=======
+      score: this.score
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
     });
   }
 
@@ -67,6 +78,7 @@ class Player {
       allPlayers = data.val();
     });
   }
+<<<<<<< HEAD
 
   getCarsAtEnd() {
     database.ref("carsAtEnd").on("value", data => {
@@ -79,4 +91,6 @@ class Player {
       carsAtEnd: rank
     });
   }
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
 }

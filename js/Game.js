@@ -7,14 +7,21 @@ class Game {
 
     this.leader1 = createElement("h2");
     this.leader2 = createElement("h2");
+<<<<<<< HEAD
     this.playerMoving = false;
     this.leftKeyActive = false;
     this.blast = false;
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
   }
 
   getState() {
     var gameStateRef = database.ref("gameState");
+<<<<<<< HEAD
     gameStateRef.on("value", function (data) {
+=======
+    gameStateRef.on("value", function(data) {
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
       gameState = data.val();
     });
   }
@@ -34,11 +41,15 @@ class Game {
     car1 = createSprite(width / 2 - 50, height - 100);
     car1.addImage("car1", car1_img);
     car1.scale = 0.07;
+<<<<<<< HEAD
     car1.addImage("blast", blastImg);
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
 
     car2 = createSprite(width / 2 + 100, height - 100);
     car2.addImage("car2", car2_img);
     car2.scale = 0.07;
+<<<<<<< HEAD
     car2.addImage("blast", blastImg);
 
     cars = [car1, car2];
@@ -98,6 +109,10 @@ class Game {
       sprite.scale = scale;
       spriteGroup.add(sprite);
     }
+=======
+
+    cars = [car1, car2];
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
   }
 
   handleElements() {
@@ -129,13 +144,19 @@ class Game {
     this.handleResetButton();
 
     Player.getPlayersInfo();
+<<<<<<< HEAD
     player.getCarsAtEnd();
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
 
     if (allPlayers !== undefined) {
       image(track, 0, -height * 5, width, height * 6);
 
+<<<<<<< HEAD
       this.showFuelBar();
       this.showLife();
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
       this.showLeaderboard();
 
       //index of the array
@@ -148,12 +169,15 @@ class Game {
         var x = allPlayers[plr].positionX;
         var y = height - allPlayers[plr].positionY;
 
+<<<<<<< HEAD
         var currentLife = allPlayers[plr].life;
         if (currentLife <= 0) {
           cars[index - 1].changeImage("blast");
           cars[index - 1].scale = 0.3;
         }
 
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
         cars[index - 1].position.x = x;
         cars[index - 1].position.y = y;
 
@@ -162,6 +186,7 @@ class Game {
           fill("red");
           ellipse(x, y, 60, 60);
 
+<<<<<<< HEAD
           this.handleFuel(index);
           this.handlePowerCoins(index);
           this.handleCarACollisionWithCarB(index);
@@ -197,6 +222,16 @@ class Game {
         this.showRank();
       }
 
+=======
+          // Changing camera position in y direction
+          camera.position.y = cars[index - 1].position.y;
+        }
+      }
+
+      // handling keyboard events
+      this.handlePlayerControls();
+
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
       drawSprites();
     }
   }
@@ -206,13 +241,18 @@ class Game {
       database.ref("/").set({
         playerCount: 0,
         gameState: 0,
+<<<<<<< HEAD
         players: {},
         carsAtEnd: 0
+=======
+        players: {}
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
       });
       window.location.reload();
     });
   }
 
+<<<<<<< HEAD
   showLife() {
     push();
     image(lifeImage, width / 2 - 130, height - player.positionY - 400, 20, 20);
@@ -235,6 +275,8 @@ class Game {
     pop();
   }
 
+=======
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
   showLeaderboard() {
     var leader1, leader2;
     var players = Object.values(allPlayers);
@@ -279,6 +321,7 @@ class Game {
   }
 
   handlePlayerControls() {
+<<<<<<< HEAD
     if (!this.blast) {
       if (keyIsDown(UP_ARROW)) {
         this.playerMoving = true;
@@ -403,3 +446,21 @@ class Game {
     });
   }
 }
+=======
+    if (keyIsDown(UP_ARROW)) {
+      player.positionY += 10;
+      player.update();
+    }
+
+    if (keyIsDown(LEFT_ARROW) && player.positionX > width / 3 - 50) {
+      player.positionX -= 5;
+      player.update();
+    }
+
+    if (keyIsDown(RIGHT_ARROW) && player.positionX < width / 2 + 300) {
+      player.positionX += 5;
+      player.update();
+    }
+  }
+}
+>>>>>>> 6c7548720d25656d3698cb9d2d59092696d7757d
