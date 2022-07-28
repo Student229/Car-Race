@@ -1,12 +1,12 @@
 var canvas;
 var backgroundImage, car1_img, car2_img, track;
 var fuelImage, powerCoinImage, lifeImage;
-var obstacle1Image, obstacle2Image;
+var obstacle1Image, obstacle2Image, blastImage;
 var database, gameState;
-var form, player, playerCount;
+var form, player, playerCount=0;
 var allPlayers, car1, car2, fuels, powerCoins, obstacles;
 var cars = [];
-
+//obo
 function preload() {
   backgroundImage = loadImage("./assets/background.png");
   car1_img = loadImage("../assets/car1.png");
@@ -17,6 +17,7 @@ function preload() {
   obstacle1Image = loadImage("./assets/obstacle1.png");
   obstacle2Image = loadImage("./assets/obstacle2.png");
   lifeImage = loadImage("./assets/life.png");
+  blastImg = loadImage("./assets/blast.png");
 }
 
 function setup() {
